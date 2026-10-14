@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src https://ltyafffwvirfvmjrkzwj.supabase.co; img-src 'self' https: data:; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="color-scheme" content="light">
+  <title>Reel — Portfolio Big Bear Film</title>
+  <link rel="icon" href="mark.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+  <script src="app.js" type="module"></script>
+</head>
+<body>
+  <main id="login" class="login-shell">
+    <section class="login-form-panel">
+      <a class="brand" href="./" aria-label="Reel — Big Bear Film"><img src="mark.svg" alt="" width="42" height="42"><span>Reel<small>BIG BEAR FILM</small></span></a>
+      <div class="login-content">
+        <p class="eyebrow">PORTFOLIO STUDIA</p><h1>Wszystkie realizacje.<br>W jednym miejscu.</h1>
+        <p class="intro">Zaloguj się kontem Reel, żeby przeglądać filmy, wyszukiwać materiały i wracać do najlepszych realizacji.</p>
+        <form id="login-form">
+          <label for="email">Firmowy e-mail</label><input id="email" name="email" type="email" autocomplete="username" placeholder="imie@bigbearfilm.pl" required>
+          <label for="password">Hasło do Reel</label><div class="password-field"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Wpisz hasło" required><button id="show-password" type="button" class="icon-button" aria-label="Pokaż hasło" title="Pokaż hasło"><span data-icon="eye"></span></button></div>
+          <p id="login-error" class="form-error" role="alert" hidden></p>
+          <button id="sign-in" class="button primary" type="submit"><span>Zaloguj się do portfolio</span><span data-icon="arrow-right"></span></button>
+        </form>
+        <p class="login-note"><span data-icon="lock"></span>Dostęp wyłącznie dla zespołu Big Bear Film.</p>
+      </div>
+      <footer>Reel / Big Bear Film <span>Biblioteka realizacji</span></footer>
+    </section>
+    <section class="login-scene" aria-hidden="true"><div class="scene-caption"><span>BIG BEAR FILM</span><p>Pomysły, które<br>nabierają obrazu.</p><div class="scene-rule"></div><small>Produkcja filmowa · Postprodukcja</small></div></section>
+  </main>
+  <div id="library" hidden>
+    <header class="topbar"><a class="brand compact" href="./"><img src="mark.svg" alt="" width="35" height="35"><span>Reel<small>PORTFOLIO</small></span></a><div class="workspace"><span class="status-dot"></span><span id="workspace-name">Big Bear Film</span></div><div class="account-actions"><span id="account-name"></span><button id="refresh" class="icon-button" title="Odśwież portfolio" aria-label="Odśwież portfolio"><span data-icon="refresh"></span></button><button id="logout" class="button quiet"><span data-icon="logout"></span><span>Wyloguj</span></button></div></header>
+    <main class="portfolio-main">
+      <section class="page-heading"><div><p class="eyebrow">BIG BEAR FILM · BIBLIOTEKA REALIZACJI</p><h1>Nasze portfolio<span>.</span></h1><p>Wybierz film. Znajdź inspirację. Pokaż, co potrafimy.</p></div><div class="library-stat"><strong id="total">—</strong><span>filmów w bibliotece</span></div></section>
+      <section class="controlbar" aria-label="Filtry portfolio"><div class="search-wrap"><span data-icon="search"></span><input id="search" type="search" placeholder="Tytuł, marka, opis lub tag…" aria-label="Szukaj filmów"></div><div class="filter-select"><span data-icon="building"></span><select id="brand" aria-label="Marka"><option value="">Wszystkie marki</option></select></div><div class="filter-select"><span data-icon="calendar"></span><select id="year" aria-label="Rok produkcji"><option value="">Wszystkie lata</option></select></div><div class="filter-select"><span data-icon="tag"></span><select id="tag" aria-label="Tag"><option value="">Wszystkie tagi</option></select></div><button id="clear" class="icon-button" title="Wyczyść filtry" aria-label="Wyczyść filtry"><span data-icon="reset"></span></button><div class="view-toggle" aria-label="Widok portfolio"><button id="grid-view" aria-label="Widok siatki" title="Widok siatki" aria-pressed="true"><span data-icon="grid"></span></button><button id="list-view" aria-label="Widok listy" title="Widok listy" aria-pressed="false"><span data-icon="list"></span></button></div></section>
+      <nav id="categories" class="category-pills" aria-label="Kategorie filmów"></nav>
+      <div class="results-meta"><p id="result-count" role="status" aria-live="polite"></p><label class="sort-label">Sortowanie <select id="sort" aria-label="Sortowanie"><option value="newest">Od najnowszych</option><option value="title">Według tytułu</option><option value="brand">Według marki</option></select></label></div>
+      <p id="library-error" class="form-error" role="alert" hidden></p><div id="loading" class="loading-state" hidden><span class="spinner"></span><p>Pobieram portfolio z Reel…</p></div>
+      <section id="films" class="film-grid" aria-label="Filmy"></section><section id="empty" class="empty-state" hidden><span data-icon="search"></span><h2>Jeszcze nie ten kadr.</h2><p>Nie znaleziono filmów. Zmień kategorię lub filtry.</p><button id="empty-clear" class="button secondary">Wyczyść filtry</button></section>
+      <div class="load-more-wrap"><button id="load-more" class="button secondary" hidden>Pokaż więcej filmów</button></div>
+      <footer class="library-footer"><span>BIG BEAR FILM</span><p>Portfolio z Reel · <span id="synced"></span></p></footer>
+    </main>
+  </div>
+  <dialog id="player"><div class="player-head"><span id="player-eyebrow"></span><button id="close-player" class="icon-button" aria-label="Zamknij film"><span data-icon="close"></span></button></div><div id="video-frame" class="video-frame"></div><div class="player-body"><p id="player-category" class="eyebrow"></p><h2 id="player-title"></h2><p id="player-description"></p><div id="player-tags" class="player-tags"></div><div class="player-actions"><a id="open-source" class="button secondary" target="_blank" rel="noopener noreferrer"><span data-icon="external"></span>Otwórz film</a><button id="copy-link" class="button primary"><span data-icon="link"></span>Kopiuj link</button></div></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <noscript><p class="noscript">Włącz JavaScript, aby zalogować się do portfolio.</p></noscript>
+</body></html>
